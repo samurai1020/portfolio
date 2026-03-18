@@ -297,6 +297,30 @@ function addImages(){
 
 modal.onclick = ()=> modal.style.display='none';
 </script>
+<body>
 
+  <!-- الموقع ديالك -->
+
+  <input type="email" id="email" placeholder="Email">
+  <input type="password" id="password" placeholder="Password">
+  <button onclick="login()">Login</button>
+  <button onclick="logout()">Logout</button>
+
+  <script>
+  function login() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then(() => alert("Logged in"))
+      .catch(err => alert(err.message));
+  }
+
+  function logout() {
+    firebase.auth().signOut();
+  }
+  </script>
+
+</body>
 </body>
 </html>
